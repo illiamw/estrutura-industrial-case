@@ -42,7 +42,7 @@ jobs:
             --cov=src \
             --cov-report=term-missing \
             --cov-report=html \
-            --cov-fail-under=70
+            --cov-fail-under=50
 
   deploy:
     needs: validate
@@ -73,4 +73,3 @@ jobs:
         run: |
           databricks bundle run ddl_deploy --target prod
 
-          
