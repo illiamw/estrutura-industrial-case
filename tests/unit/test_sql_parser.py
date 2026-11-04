@@ -37,27 +37,30 @@ def test_read_sql_file_reads_utf8_contents(tmp_path: Path) -> None:
     assert read_sql_file(sql_file) == "-- Medição: válida\nSELECT 1;"
 
 
-def test_find_sql_files_returns_only_sql_files_in_sorted_order(
+def test_find_sql_files_returns_sql_files_recursively_in_sorted_order(
     tmp_path: Path,
 ) -> None:
     (tmp_path / "z.sql").write_text("SELECT 1;", encoding="utf-8")
     (tmp_path / "notes.txt").write_text("not SQL", encoding="utf-8")
     nested = tmp_path / "nested"
     nested.mkdir()
-    (nested / "a.SQL").write_text("SELECT 2;", encoding="utf-8")
+    (nested / "a.sql").write_text("SELECT 2;", encoding="utf-8")
 
-    assert find_sql_files(str(tmp_path)) == [tmp_path / "z.sql"]
+    assert find_sql_files(str(tmp_path)) == [nested / "a.sql", tmp_path / "z.sql"]
 
 
 def test_find_sql_files_accepts_sql_file_and_rejects_other_paths(
     tmp_path: Path,
 ) -> None:
     sql_file = tmp_path / "one.sql"
+    uppercase_sql_file = tmp_path / "uppercase.SQL"
     text_file = tmp_path / "one.txt"
     sql_file.touch()
+    uppercase_sql_file.touch()
     text_file.touch()
 
     assert find_sql_files(str(sql_file)) == [sql_file]
+    assert find_sql_files(str(uppercase_sql_file)) == [uppercase_sql_file]
     assert find_sql_files(str(text_file)) == []
     assert find_sql_files(str(tmp_path / "missing")) == []
 
@@ -73,9 +76,16 @@ def test_parse_sql_returns_empty_list_for_empty_input() -> None:
     assert parse_sql(" ; \n ") == []
 
 
-def test_parse_sql_raises_for_invalid_sql() -> None:
+def test_parse_sql_propagates_sqlglot_parse_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def raise_parse_error(*args: object, **kwargs: object) -> list[object]:
+        raise sqlglot.errors.ParseError("invalid SQL")
+
+    monkeypatch.setattr(sqlglot, "parse", raise_parse_error)
+
     with pytest.raises(sqlglot.errors.ParseError):
-        parse_sql("CREATE TABLE (")
+        parse_sql("SELECT 1")
 
 
 def test_get_comment_handles_none_and_sql_literal() -> None:
@@ -186,15 +196,23 @@ def test_process_file_reports_unsupported_ctas(tmp_path: Path) -> None:
     assert "Comando 1: CREATE TABLE sem definição explícita" in result.errors[0]
 
 
-def test_process_file_reports_sql_parse_error(tmp_path: Path) -> None:
+def test_process_file_reports_sql_parse_error(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     sql_file = tmp_path / "invalid.sql"
-    sql_file.write_text("CREATE TABLE (", encoding="utf-8")
+    sql_file.write_text("SELECT 1;", encoding="utf-8")
+
+    def raise_parse_error(content: str) -> list[sqlglot.exp.Expression]:
+        raise sqlglot.errors.ParseError("invalid SQL")
+
+    monkeypatch.setattr("src.ddl.sql_parser.parse_sql", raise_parse_error)
 
     result = process_file(sql_file)
 
     assert result.statements == 0
     assert result.columns == []
-    assert result.errors[0].startswith("Erro de sintaxe SQL:")
+    assert result.errors == ["Erro de sintaxe SQL: invalid SQL"]
 
 
 def test_process_file_reports_invalid_utf8(tmp_path: Path) -> None:
