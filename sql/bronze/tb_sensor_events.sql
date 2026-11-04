@@ -38,13 +38,13 @@ CREATE TABLE IF NOT EXISTS datapulse.bronze.sensor_events (
     dec_umidade_pct DOUBLE
         COMMENT 'Umidade em percentual',
 
-    int_tamanho_lote BIGINT
+    dec_tamanho_lote BIGINT
         COMMENT 'Tamanho do lote',
 
     dec_tempo_setup_min DOUBLE
         COMMENT 'Tempo de setup em minutos',
 
-    int_paradas_nao_planejadas BIGINT
+    dec_paradas_nao_planejadas BIGINT
         COMMENT 'Quantidade de paradas não planejadas',
 
     dec_taxa_defeitos_pct DOUBLE
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS datapulse.bronze.sensor_events (
     str_consumo_energia_kwh STRING
         COMMENT 'Consumo de energia em quilowatt-hora',
 
-    int_falha_24h BIGINT
+    dec_falha_24h BIGINT
         COMMENT 'Indicador de falha nas últimas 24 horas'
 )
 USING DELTA
