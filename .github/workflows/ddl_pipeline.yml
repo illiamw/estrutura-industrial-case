@@ -72,3 +72,5 @@ jobs:
           DATABRICKS_AUTH_TYPE: pat
         run: |
           databricks bundle run ddl_deploy --target prod
+
+          
