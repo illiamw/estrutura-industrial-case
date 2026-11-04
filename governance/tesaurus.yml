@@ -10,7 +10,6 @@ terms:
     description: "Identificador único de uma entidade."
     synonyms:
       - identificador
-      - código
 
   nome:
     description: "Nome utilizado para identificar uma entidade."
