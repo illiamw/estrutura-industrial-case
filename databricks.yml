@@ -6,10 +6,8 @@ include:
 
 targets:
   dev:
-    default: true
     mode: development
-    workspace:
-      host: ${var.databricks_host}
+    default: true
 
   prod:
     mode: production
