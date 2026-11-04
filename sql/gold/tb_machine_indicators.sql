@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS datapulse.gold.sensor_events (
     dec_taxa_defeitos_pct DOUBLE
         COMMENT 'Taxa de defeitos em percentual',
 
-    dec_linha_producao_pad_A DOUBLE
+    dec_linha_producao_pad_a DOUBLE
         COMMENT 'Indicador da linha de produção padronizada A',
 
-    dec_linha_producao_pad_B DOUBLE
+    dec_linha_producao_pad_b DOUBLE
         COMMENT 'Indicador da linha de produção padronizada B',
 
-    dec_linha_producao_pad_C DOUBLE
+    dec_linha_producao_pad_c DOUBLE
         COMMENT 'Indicador da linha de produção padronizada C',
 
     dec_turno_pad_manha DOUBLE
