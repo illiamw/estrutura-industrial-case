@@ -1,0 +1,69 @@
+name: Databricks DDL Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+
+  push:
+    branches: [main]
+
+jobs:
+
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate SQL
+        run: python -m src.ddl.sql_parser
+
+      - name: Validate naming
+        run: python -m src.governance.naming_validator
+
+      - name: Validate descriptions
+        run: python -m src.governance.description_validator
+
+      - name: Validate type
+        run: python -m src.governance.type_validator
+
+      - name: Unit tests
+        run: pytest tests/unit --cov=src
+
+  deploy:
+    needs: validate
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Deploy bundle
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_AUTH_TYPE: pat
+        run: |
+          databricks bundle validate --target prod
+          databricks bundle deploy --target prod
+
+      - name: Execute DDL Job
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_AUTH_TYPE: pat
+        run: |
+          databricks bundle run ddl_deploy --target prod

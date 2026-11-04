@@ -1,0 +1,296 @@
+terms:
+
+  sensor:
+    description: "Dispositivo responsável pela coleta de dados."
+    synonyms:
+      - dispositivo
+      - equipamento
+
+  identificador:
+    description: "Identificador único de uma entidade."
+    synonyms:
+      - identificador
+      - código
+
+  nome:
+    description: "Nome utilizado para identificar uma entidade."
+    synonyms:
+      - nome
+      - denominação
+
+  temperatura:
+    description: "Medida de temperatura de um equipamento ou ambiente."
+    synonyms:
+      - temperatura
+      - térmica
+
+  evento:
+    description: "Ocorrência registrada em determinado momento."
+    synonyms:
+      - evento
+      - ocorrência
+
+  data:
+    description: "Data relacionada a um evento ou registro."
+    synonyms:
+      - data
+
+  registro:
+    description: "Registro que armazena dados de um evento ou processo."
+    synonyms:
+      - registro
+      - registo
+
+  linha_producao:
+    description: "Linha de produção associada a um processo industrial."
+    synonyms:
+      - linha de produção
+      - linha_producao
+
+  turno:
+    description: "Período de trabalho ou operação da produção."
+    synonyms:
+      - turno
+
+  maquina:
+    description: "Equipamento industrial que executa ou participa de um processo."
+    synonyms:
+      - máquina
+      - maquina
+
+  idade:
+    description: "Tempo de existência ou operação de uma máquina."
+    synonyms:
+      - idade
+
+  ano:
+    description: "Unidade de tempo equivalente a doze meses."
+    synonyms:
+      - ano
+      - anos
+
+  valor:
+    description: "Valor numérico ou textual associado a uma medida."
+    synonyms:
+      - valor
+
+  unidade:
+    description: "Unidade usada para expressar uma medida."
+    synonyms:
+      - unidade
+
+  pressao:
+    description: "Força exercida por unidade de área."
+    synonyms:
+      - pressão
+      - pressao
+
+  vibracao:
+    description: "Oscilação mecânica de um equipamento ou componente."
+    synonyms:
+      - vibração
+      - vibracao
+
+  motor:
+    description: "Componente que converte energia em movimento mecânico."
+    synonyms:
+      - motor
+
+  velocidade:
+    description: "Distância percorrida por unidade de tempo."
+    synonyms:
+      - velocidade
+
+  esteira:
+    description: "Equipamento usado para transportar materiais em uma linha de produção."
+    synonyms:
+      - esteira
+      - transportador
+
+  umidade:
+    description: "Quantidade de vapor de água presente no ambiente ou material."
+    synonyms:
+      - umidade
+
+  percentual:
+    description: "Proporção expressa em relação a cem."
+    synonyms:
+      - percentual
+      - porcentagem
+      - pct
+
+  tamanho:
+    description: "Dimensão ou quantidade que caracteriza o tamanho de um lote."
+    synonyms:
+      - tamanho
+
+  lote:
+    description: "Conjunto de itens processados como uma unidade."
+    synonyms:
+      - lote
+
+  tempo:
+    description: "Duração ou instante associado a um processo."
+    synonyms:
+      - tempo
+
+  preparacao:
+    description: "Preparação ou ajuste de uma máquina para iniciar ou alterar uma produção."
+    synonyms:
+      - setup
+      - preparação
+
+  parada:
+    description: "Interrupção da operação de uma máquina ou processo."
+    synonyms:
+      - parada
+      - paradas
+
+  nao_planejado:
+    description: "Condição ou ocorrência que não foi prevista no planejamento."
+    synonyms:
+      - não planejada
+      - nao_planejada
+
+  taxa:
+    description: "Medida de frequência ou proporção de uma ocorrência."
+    synonyms:
+      - taxa
+
+  defeito:
+    description: "Não conformidade identificada em um produto ou processo."
+    synonyms:
+      - defeito
+      - defeitos
+
+  energia:
+    description: "Capacidade usada ou consumida para realizar trabalho."
+    synonyms:
+      - energia
+
+  sensor_b:
+    description: "Sensor identificado pela letra B."
+    synonyms:
+      - sensor b
+      - sensor_b
+
+  codigo:
+    description: "Sequência usada para identificar uma entidade ou categoria."
+    synonyms:
+      - código
+      - codigo
+
+  campanha:
+    description: "Conjunto de atividades de produção agrupadas sob uma identificação."
+    synonyms:
+      - campanha
+
+  ruido:
+    description: "Variação aleatória ou interferência observada em uma medição."
+    synonyms:
+      - ruído
+      - ruido
+
+  aleatorio:
+    description: "Determinado por variação sem padrão previsível."
+    synonyms:
+      - aleatório
+      - aleatória
+
+  consumo:
+    description: "Quantidade de um recurso utilizada em determinado processo."
+    synonyms:
+      - consumo
+
+  falha:
+    description: "Perda da capacidade de um equipamento ou processo de operar como esperado."
+    synonyms:
+      - falha
+
+  hora:
+    description: "Unidade de tempo equivalente a sessenta minutos."
+    synonyms:
+      - hora
+      - horas
+
+  padronizado:
+    description: "Adequado a um padrão definido para uniformizar os dados."
+    synonyms:
+      - padronizado
+      - padronizada
+      - pad
+
+  grau_celsius:
+    description: "Escala de temperatura cujo símbolo é °C."
+    synonyms:
+      - grau Celsius
+      - graus Celsius
+
+  bar:
+    description: "Unidade de medida de pressão."
+    synonyms:
+      - bar
+
+  indicador:
+    description: "Medida ou variável que representa uma característica ou condição."
+    synonyms:
+      - indicador
+      - indicadora
+
+  manha:
+    description: "Período do dia entre a madrugada e o meio-dia."
+    synonyms:
+      - manhã
+      - manha
+
+  noite:
+    description: "Período do dia associado à noite."
+    synonyms:
+      - noite
+
+  tarde:
+    description: "Período do dia entre o meio-dia e a noite."
+    synonyms:
+      - tarde
+
+  codigo_maquina:
+    description: "Código que identifica uma máquina específica."
+    synonyms:
+      - código da máquina
+      - M01
+      - M02
+      - M03
+      - M04
+      - M05
+      - M06
+      - M07
+      - M08
+
+  quilowatt_hora:
+    description: "Unidade de energia equivalente a um quilowatt consumido durante uma hora."
+    synonyms:
+      - quilowatt-hora
+      - kWh
+      - kwh
+
+  milimetro_por_segundo:
+    description: "Unidade de velocidade equivalente a milímetros por segundo."
+    synonyms:
+      - milímetro por segundo
+      - milímetros por segundo
+      - mm/s
+      - mm_s
+
+  metro_por_minuto:
+    description: "Unidade de velocidade equivalente a metros por minuto."
+    synonyms:
+      - metro por minuto
+      - metros por minuto
+      - m/min
+      - m_min
+
+  minuto:
+    description: "Unidade de tempo equivalente a sessenta segundos."
+    synonyms:
+      - minuto
+      - minutos

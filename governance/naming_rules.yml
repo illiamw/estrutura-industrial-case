@@ -1,0 +1,24 @@
+naming:
+  pattern: "^(str|int|big|dec|dt|ts|bool)_[a-z][a-z0-9_]*$"
+
+  prefixes:
+    str:
+      allowed_types: ["STRING"]
+
+    int:
+      allowed_types: ["INT", "INTEGER"]
+
+    big:
+      allowed_types: ["BIGINT"]
+
+    dec:
+      allowed_types: ["DECIMAL", "DOUBLE", "FLOAT"]
+
+    dt:
+      allowed_types: ["DATE"]
+
+    ts:
+      allowed_types: ["TIMESTAMP"]
+
+    bool:
+      allowed_types: ["BOOLEAN"]

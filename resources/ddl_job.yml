@@ -1,0 +1,24 @@
+resources:
+  jobs:
+    ddl_deploy:
+      name: ddl-deploy
+
+      tasks:
+        - task_key: execute_ddl
+
+          job_cluster_key: ddl_cluster
+
+          spark_python_task:
+            python_file: ../src/ddl/deploy.py
+
+            parameters:
+              - "--sql-path"
+              - "sql/"
+
+      job_clusters:
+        - job_cluster_key: ddl_cluster
+
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "m5d.large"
+            num_workers: 1

@@ -1,0 +1,59 @@
+types:
+  STRING:
+    enabled: true
+
+  INT:
+    enabled: true
+
+  INTEGER:
+    enabled: true
+
+  BIGINT:
+    enabled: true
+
+  SMALLINT:
+    enabled: true
+
+  TINYINT:
+    enabled: true
+
+  DECIMAL:
+    enabled: true
+    parameters:
+      precision:
+        min: 1
+        max: 38
+      scale:
+        min: 0
+        max: 38
+        must_not_exceed_precision: true
+
+  DOUBLE:
+    enabled: true
+
+  FLOAT:
+    enabled: true
+
+  DATE:
+    enabled: true
+
+  TIMESTAMP:
+    enabled: true
+
+  BOOLEAN:
+    enabled: true
+
+  BINARY:
+    enabled: true
+
+  ARRAY:
+    enabled: true
+    complex: true
+
+  MAP:
+    enabled: true
+    complex: true
+
+  STRUCT:
+    enabled: true
+    complex: true
