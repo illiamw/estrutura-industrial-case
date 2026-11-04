@@ -14,16 +14,16 @@ CREATE TABLE IF NOT EXISTS datapulse.bronze.sensor_events (
     str_maquina STRING
         COMMENT 'Máquina associada ao registro',
 
-    int_idade_maquina_anos BIGINT
+    big_idade_maquina_anos BIGINT
         COMMENT 'Idade da máquina em anos',
 
-    dbl_temperatura_valor DOUBLE
+    dbl_temperatura DOUBLE
         COMMENT 'Valor da temperatura',
 
     str_unidade_temperatura STRING
         COMMENT 'Unidade de medida da temperatura',
 
-    dbl_pressao_valor DOUBLE
+    dbl_pressao DOUBLE
         COMMENT 'Valor da pressão',
 
     str_unidade_pressao STRING
