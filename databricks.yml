@@ -11,6 +11,13 @@ targets:
     workspace:
       host: ${var.databricks_host}
 
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+      file_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}/files
+
+
 variables:
   databricks_host:
     description: Databricks workspace URL
