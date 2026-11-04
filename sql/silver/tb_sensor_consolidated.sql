@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS datapulse.silver.sensor_events (
     str_maquina STRING
         COMMENT 'Máquina associada ao registro',
 
-    dec_idade_maquina_anos BIGINT
+    big_idade_maquina_anos BIGINT
         COMMENT 'Idade da máquina em anos',
 
     dec_vibracao_motor_mm_s DOUBLE
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS datapulse.silver.sensor_events (
     dec_tempo_setup_min DOUBLE
         COMMENT 'Tempo de setup em minutos',
 
-    dec_paradas_nao_planejadas BIGINT
+    big_paradas_nao_planejadas BIGINT
         COMMENT 'Quantidade de paradas não planejadas',
 
     dec_taxa_defeitos_pct DOUBLE
