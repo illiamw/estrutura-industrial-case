@@ -25,29 +25,38 @@ logging.basicConfig(
 logger = logging.getLogger("ddl_deploy")
 
 
+
 def resolve_sql_path(path: str) -> Path:
     """Resolve o diretório SQL a partir da raiz do projeto."""
 
     requested_path = Path(path)
 
     if requested_path.is_absolute():
-        resolved = requested_path
+        candidates = [requested_path]
     else:
-        project_root = Path(__file__).resolve().parents[2]
+        cwd = Path.cwd()
 
         candidates = [
-            Path.cwd() / requested_path,
-            project_root / requested_path,
+            cwd / requested_path,
+            cwd / "files" / requested_path,
+            cwd.parent / requested_path,
+            cwd.parent.parent / requested_path,
         ]
 
-        resolved = next(
-            (candidate for candidate in candidates if candidate.is_dir()),
-            candidates[-1],
+    resolved = next(
+        (candidate for candidate in candidates if candidate.is_dir()),
+        None,
+    )
+
+    if resolved is None:
+        searched_paths = "\n".join(
+            f" - {candidate}" for candidate in candidates
         )
 
-    if not resolved.is_dir():
         raise FileNotFoundError(
-            f"Diretório SQL não encontrado: {resolved}"
+            f"Diretório SQL não encontrado: {path}\n"
+            f"Diretório atual: {Path.cwd()}\n"
+            f"Caminhos verificados:\n{searched_paths}"
         )
 
     return resolved.resolve()
