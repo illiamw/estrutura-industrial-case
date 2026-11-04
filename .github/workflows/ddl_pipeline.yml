@@ -74,20 +74,20 @@ jobs:
 
           echo "=== AUTH CONFIGURATION ==="
           databricks auth describe || true
-      - name: Deploy bundle
-        env:
-          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-          DATABRICKS_AUTH_TYPE: pat
-        run: |
-          databricks bundle validate --target prod
-          databricks bundle deploy --target prod
+      
+      
+      # Authentication test
+      - name: Test Databricks Authentication
+        run: databricks current-user me --profile default
+
+      # Bundle validation
+      - name: Validate Databricks Bundle
+        run: databricks bundle validate --target prod
+
+      # Deploy
+      - name: Deploy Databricks Bundle
+        run: databricks bundle deploy --target prod
 
       - name: Execute DDL Job
-        env:
-          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-          DATABRICKS_AUTH_TYPE: pat
-        run: |
-          databricks bundle run ddl_deploy --target prod
+        run: databricks bundle run ddl_deploy --target prod
 
