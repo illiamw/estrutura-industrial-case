@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS datapulse.silver.sensor_events (
     dec_consumo_energia_kwh DOUBLE
         COMMENT 'Consumo de energia em quilowatt-hora',
 
-    dec_falha_24h BIGINT
+    big_falha_24h BIGINT
         COMMENT 'Indicador de falha nas últimas 24 horas',
 
     ts_data_registro_pad TIMESTAMP
