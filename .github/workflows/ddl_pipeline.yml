@@ -49,6 +49,11 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_AUTH_TYPE: pat
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,6 +61,19 @@ jobs:
       - name: Setup Databricks CLI
         uses: databricks/setup-cli@main
 
+      - name: Inspect Databricks Authentication
+        run: |
+          echo "=== ENVIRONMENT ==="
+          echo "HOST: $DATABRICKS_HOST"
+
+          echo "=== CREDENTIALS ==="
+          test -n "$DATABRICKS_TOKEN" && echo "TOKEN: PRESENT" || echo "TOKEN: MISSING"
+
+          echo "=== CLI VERSION ==="
+          databricks version
+
+          echo "=== AUTH CONFIGURATION ==="
+          databricks auth describe || true
       - name: Deploy bundle
         env:
           DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
