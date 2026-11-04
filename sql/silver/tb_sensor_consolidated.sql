@@ -8,37 +8,37 @@ CREATE TABLE IF NOT EXISTS datapulse.silver.sensor_events (
     int_idade_maquina_anos BIGINT
         COMMENT 'Idade da máquina em anos',
 
-    dbl_vibracao_motor_mm_s DOUBLE
+    dec_vibracao_motor_mm_s DOUBLE
         COMMENT 'Vibração do motor em milímetros por segundo',
 
-    dbl_velocidade_esteira_m_min DOUBLE
+    dec_velocidade_esteira_m_min DOUBLE
         COMMENT 'Velocidade da esteira em metros por minuto',
 
-    dbl_umidade_pct DOUBLE
+    dec_umidade_pct DOUBLE
         COMMENT 'Umidade em percentual',
 
-    dbl_tamanho_lote DOUBLE
+    dec_tamanho_lote DOUBLE
         COMMENT 'Tamanho do lote',
 
-    dbl_tempo_setup_min DOUBLE
+    dec_tempo_setup_min DOUBLE
         COMMENT 'Tempo de setup em minutos',
 
     int_paradas_nao_planejadas BIGINT
         COMMENT 'Quantidade de paradas não planejadas',
 
-    dbl_taxa_defeitos_pct DOUBLE
+    dec_taxa_defeitos_pct DOUBLE
         COMMENT 'Taxa de defeitos em percentual',
 
-    dbl_energia_sensor_b_kwh DOUBLE
+    dec_energia_sensor_b_kwh DOUBLE
         COMMENT 'Energia do sensor B em quilowatt-hora',
 
     str_codigo_campanha STRING
         COMMENT 'Código da campanha',
 
-    dbl_ruido_aleatorio DOUBLE
+    dec_ruido_aleatorio DOUBLE
         COMMENT 'Valor de ruído aleatório',
 
-    dbl_consumo_energia_kwh DOUBLE
+    dec_consumo_energia_kwh DOUBLE
         COMMENT 'Consumo de energia em quilowatt-hora',
 
     int_falha_24h BIGINT
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS datapulse.silver.sensor_events (
     ts_data_registro_pad TIMESTAMP
         COMMENT 'Data e horário do registro padronizado',
 
-    dbl_temperatura_c DOUBLE
+    dec_temperatura_c DOUBLE
         COMMENT 'Temperatura em graus Celsius',
 
-    dbl_pressao_bar DOUBLE
+    dec_pressao_bar DOUBLE
         COMMENT 'Pressão em bar',
 
     str_linha_producao_pad STRING

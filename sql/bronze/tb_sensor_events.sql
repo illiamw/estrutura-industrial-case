@@ -17,13 +17,13 @@ CREATE TABLE IF NOT EXISTS datapulse.bronze.sensor_events (
     big_idade_maquina_anos BIGINT
         COMMENT 'Idade da máquina em anos',
 
-    dbl_temperatura DOUBLE
+    dec_temperatura DOUBLE
         COMMENT 'Valor da temperatura',
 
     str_unidade_temperatura STRING
         COMMENT 'Unidade de medida da temperatura',
 
-    dbl_pressao DOUBLE
+    dec_pressao DOUBLE
         COMMENT 'Valor da pressão',
 
     str_unidade_pressao STRING
@@ -32,31 +32,31 @@ CREATE TABLE IF NOT EXISTS datapulse.bronze.sensor_events (
     str_vibracao_motor_mm_s STRING
         COMMENT 'Vibração do motor em milímetros por segundo',
 
-    dbl_velocidade_esteira_m_min DOUBLE
+    dec_velocidade_esteira_m_min DOUBLE
         COMMENT 'Velocidade da esteira em metros por minuto',
 
-    dbl_umidade_pct DOUBLE
+    dec_umidade_pct DOUBLE
         COMMENT 'Umidade em percentual',
 
     int_tamanho_lote BIGINT
         COMMENT 'Tamanho do lote',
 
-    dbl_tempo_setup_min DOUBLE
+    dec_tempo_setup_min DOUBLE
         COMMENT 'Tempo de setup em minutos',
 
     int_paradas_nao_planejadas BIGINT
         COMMENT 'Quantidade de paradas não planejadas',
 
-    dbl_taxa_defeitos_pct DOUBLE
+    dec_taxa_defeitos_pct DOUBLE
         COMMENT 'Taxa de defeitos em percentual',
 
-    dbl_energia_sensor_b_kwh DOUBLE
+    dec_energia_sensor_b_kwh DOUBLE
         COMMENT 'Energia do sensor B em quilowatt-hora',
 
     str_codigo_campanha STRING
         COMMENT 'Código da campanha',
 
-    dbl_ruido_aleatorio DOUBLE
+    dec_ruido_aleatorio DOUBLE
         COMMENT 'Valor de ruído aleatório',
 
     str_consumo_energia_kwh STRING
