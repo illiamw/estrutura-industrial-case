@@ -82,3 +82,4 @@ CREATE TABLE IF NOT EXISTS datapulse.gold.sensor_events (
 )
 USING DELTA
 COMMENT 'Eventos de sensores agregados e codificados na camada gold';
+
