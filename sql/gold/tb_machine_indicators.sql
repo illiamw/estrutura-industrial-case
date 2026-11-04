@@ -47,28 +47,28 @@ CREATE TABLE IF NOT EXISTS datapulse.gold.sensor_events (
     dec_turno_pad_tarde DOUBLE
         COMMENT 'Indicador do turno padronizado da tarde',
 
-    dec_maquina_M01 DOUBLE
+    dec_maquina_m01 DOUBLE
         COMMENT 'Indicador da máquina M01',
 
-    dec_maquina_M02 DOUBLE
+    dec_maquina_m02 DOUBLE
         COMMENT 'Indicador da máquina M02',
 
-    dec_maquina_M03 DOUBLE
+    dec_maquina_m03 DOUBLE
         COMMENT 'Indicador da máquina M03',
 
-    dec_maquina_M04 DOUBLE
+    dec_maquina_m04 DOUBLE
         COMMENT 'Indicador da máquina M04',
 
-    dec_maquina_M05 DOUBLE
+    dec_maquina_m05 DOUBLE
         COMMENT 'Indicador da máquina M05',
 
-    dec_maquina_M06 DOUBLE
+    dec_maquina_m06 DOUBLE
         COMMENT 'Indicador da máquina M06',
 
-    dec_maquina_M07 DOUBLE
+    dec_maquina_m07 DOUBLE
         COMMENT 'Indicador da máquina M07',
 
-    dec_maquina_M08 DOUBLE
+    dec_maquina_m08 DOUBLE
         COMMENT 'Indicador da máquina M08',
 
     dec_consumo_energia_kwh DOUBLE
