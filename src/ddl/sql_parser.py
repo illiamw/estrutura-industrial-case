@@ -30,6 +30,12 @@ class ParseResult:
     errors: list[str]
 
 
+def read_sql_file(path: Path) -> str:
+    """Lê um arquivo SQL codificado em UTF-8."""
+
+    return path.read_text(encoding="utf-8")
+
+
 def find_sql_files(path: str) -> list[Path]:
     """Localiza arquivos SQL em um diretório ou recebe um arquivo."""
 
